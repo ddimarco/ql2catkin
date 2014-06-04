@@ -1,8 +1,12 @@
 (in-package :ql2cat)
 
-;; (defun find-files-of-type (path ext)
-;;   (format t "ffot: ~a~%" (directory (make-pathname :directory path :name :wild :type ext)))
-;;   (directory (make-pathname :directory path :name :wild :type ext)))
+(eval-when (:load-toplevel)
+  ;; TODO: download first?
+  (let ((quicklisp-init (merge-pathnames "quicklisp/setup.lisp"
+                                         (user-homedir-pathname))))
+    (unless (probe-file quicklisp-init)
+      (error "Quicklisp is not installed!"))
+    (load quicklisp-init)))
 
 (defun directory-p (p)
   (null (pathname-name p)))
@@ -60,6 +64,7 @@ is replaced with replacement."
 
 (defun catkinize-system (name base-path)
   "creates a ROS package for the quicklisp system `name'."
+  (format t "catkinize ~a into ~a~%" name base-path)
   (let ((ros-pkg (find-in-ros-system name)))
     (when ros-pkg
       (format t "already found ~a in ~a~%" name ros-pkg)

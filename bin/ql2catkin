@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#ROS_SBCL_PATH=`rospack find sbcl`
+ROS_SBCL_PATH=sbcl
+ROSLISP_PATH=`rospack find roslisp`
+if [ -z "$ROSLISP_PATH" ]; then
+  echo "roslisp not found"
+  exit 1
+fi
+
+sbcl --load $ROSLISP_PATH/scripts/roslisp-sbcl-init --load `rospack find ql2catkin`/bin/setup.lisp "$@"
