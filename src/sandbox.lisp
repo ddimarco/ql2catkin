@@ -1,7 +1,7 @@
 (in-package :ql2cat)
 
 (eval-when (:load-toplevel)
-  ;; TODO: download first?
+  ;; TODO: download setup file first?
   (let ((quicklisp-init (merge-pathnames "quicklisp/setup.lisp"
                                          (user-homedir-pathname))))
     (unless (probe-file quicklisp-init)
@@ -10,6 +10,7 @@
 
 (defun directory-p (p)
   (null (pathname-name p)))
+
 (defun recursively-find-files-of-type (dir type)
   (let ((files nil)
         (dir (if (equal (type-of dir) 'pathname)

@@ -2,7 +2,7 @@
   <name>ql2catkin</name>
   <version>0.0.1</version>
   <description>
-    hack to create catkinized ROS packages from quicklisp
+    a quick hack to create catkinized ROSLisp packages from packages installable from Zach Beane's quicklisp (http://www.quicklisp.org/)
   </description>
 
   <author email="dimarco@ipvs.uni-stuttgart.de">Daniel Di Marco</author>
