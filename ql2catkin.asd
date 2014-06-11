@@ -9,7 +9,6 @@
   ((:module "src"
             :components
             ((:file "package")
-             (:file "sandbox" :depends-on ("package"))
-             ))))
+             (:file "ql2catkin" :depends-on ("package"))))))
 
 
